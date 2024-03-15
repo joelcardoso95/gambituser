@@ -43,6 +43,9 @@ func LambdaExecute(ctx context.Context, event events.CognitoEventUserPoolsPostCo
 		fmt.Println("Erro ao ler o Secret " + err.Error())
 		return event, err
 	}
+
+	err = database.SignUp(signUpData)
+	return event, err
 }
 
 func ParametersValidate() bool {
